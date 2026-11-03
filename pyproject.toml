@@ -1,0 +1,53 @@
+[project]
+name = "langchain-lab"
+version = "0.1.0"
+description = "Tutorials, course notes and experiments with LangChain, LangGraph and Deep Agents."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+# Shared tooling for the whole repository.
+dev = [
+    "ruff>=0.14.7",
+    "mypy>=1.19.0",
+    "ipykernel>=7.1.0",
+]
+# Shared environment for everything under notes/.
+# Tutorials and academy courses declare their own dependencies instead.
+notes = [
+    "langchain>=1.0",
+    "langgraph>=1.0",
+    "langchain-openai>=1.0",
+    "python-dotenv>=1.0",
+]
+
+[tool.uv]
+default-groups = ["dev", "notes"]
+
+[tool.ruff]
+extend-exclude = ["academy"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle
+    "F",   # pyflakes
+    "I",   # isort
+    "D",   # pydocstyle
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501",  # line length
+    "D100",  # module docstring
+    "D101",  # class docstring
+    "D103",  # function docstring
+    "D202",  # blank line after docstring
+    "D417",  # parameter docs
+]
+
+[tool.ruff.lint.per-file-ignores]
+"notes/*" = ["D"]
+"tests/*" = ["D", "UP"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
