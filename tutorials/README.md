@@ -2,6 +2,8 @@
 
 Original, self-contained tutorials. Each one should run on its own after `uv sync`.
 
+Looking for full applications with frontend, database and Docker? See [`../projects`](../projects/).
+
 ## Rules
 
 - Folders are numbered in publishing order: `01-first-agent`, `02-human-in-the-loop`, ...

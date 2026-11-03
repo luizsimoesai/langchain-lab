@@ -10,6 +10,7 @@ This repository is the companion code for my learning journey and for the conten
 | --- | --- |
 | [`academy/`](academy/) | Notes and exercises following external courses (for example LangChain Academy). Each course is an isolated project. |
 | [`tutorials/`](tutorials/) | Original, self-contained tutorials. Each one is meant to be cloned and run on its own. |
+| [`projects/`](projects/) | Complete use cases with backend, frontend, database and Docker. Each one runs with `docker compose up`. |
 | [`notes/`](notes/) | Loose studies, drafts and experiments. Shares one environment at the repository root. |
 | [`shared/`](shared/) | Small helpers reused across tutorials. |
 
@@ -33,11 +34,19 @@ uv sync
 uv run python main.py
 ```
 
+Projects run with Docker:
+
+```bash
+cd projects/<project-name>
+cp .env.example .env
+docker compose up
+```
+
 ## Conventions
 
 - **Language:** all code, comments, docs and commit messages are in English.
-- **Naming:** lowercase folder names with hyphens. Tutorials are numbered in publishing order (`01-first-agent`).
-- **Environments:** one `.venv` per tutorial and per academy course. `notes/` uses the root environment.
+- **Naming:** lowercase folder names with hyphens. Tutorials and projects are numbered in publishing order (`01-first-agent`).
+- **Environments:** one `.venv` per tutorial, per academy course and per project backend (`projects/*/backend`). `notes/` uses the root environment.
 - **Secrets:** keep keys in `.env` (ignored by git). Update `.env.example` when a new variable is needed.
 - **Style:** `uv run ruff check .` and `uv run ruff format .` from the repository root.
 
